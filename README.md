@@ -43,6 +43,13 @@ This project follows Google architecture guidelines that are based on BLoC.
         - bloc
         - pages
         - widgets
+        
+## Overview
+Entered Correct Amount (iOS)|Entered Incorrect Amount (iOS)|Entered Large Amount (iOS)
+:------------------------:|:--------------------------:|:-------------------------:
+![alt-ios-correct-screen](https://github.com/Holofox/flutter_atm/blob/master/screenshots/ios/entered_correct_amount_screen.png "Entered Correct Amount")|![alt-ios-incorrect-screen](https://github.com/Holofox/flutter_atm/blob/master/screenshots/ios/entered_incorrect_amount_screen.png "Entered Incorrect Amount")|![alt-ios-large-amount-screen](https://github.com/Holofox/flutter_atm/blob/master/screenshots/ios/entered_large_amount_screen.png "Entered Large Amount")
+Start Screen (Android) | Entered Сorrect Amount (Android) | Entered Incorrect Amount (Android)
+|![alt-android-start-screen](https://github.com/Holofox/flutter_atm/blob/master/screenshots/android/start_screen.png "Start screen")|![alt-android-correct-screen](https://github.com/Holofox/flutter_atm/blob/master/screenshots/android/entered_correct_amount_screen.png "Entered Correct Amount")|![alt-android-incorrect-screen](https://github.com/Holofox/flutter_atm/blob/master/screenshots/android/entered_incorrect_amount_screen.png "Entered Incorrect Amount")
 
 ## References
 * [Flutter](https://flutter.dev/)
@@ -50,4 +57,4 @@ This project follows Google architecture guidelines that are based on BLoC.
 
 ## License
 
-This source is released under the [MIT License](https://github.com/Holofox/flutter-atm/blob/master/LICENSE).
+This source is released under the [MIT License](https://github.com/Holofox/flutter_atm/blob/master/LICENSE).
