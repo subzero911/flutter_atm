@@ -1,12 +1,12 @@
 import 'package:meta/meta.dart';
 
 import 'package:flutter_atm/features/atm/data/models/bank_cell.dart';
-import 'package:flutter_atm/features/atm/domain/providers/atm_fake_provider.dart';
+import 'package:flutter_atm/features/atm/domain/providers/i_atm_fake_provider.dart';
 
-class AtmFakeProviderImpl extends AtmFakeProvider {
+class AtmFakeProvider implements IAtmFakeProvider {
   List<BankCell> balance;
 
-  AtmFakeProviderImpl({
+  AtmFakeProvider({
     @required this.balance,
   }) : assert(balance != null);
 

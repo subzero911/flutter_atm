@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'core/app_colors.dart';
 import 'features/atm/presentation/pages/atm_page.dart';
-import 'injection_container.dart' as di;
+import 'injection.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await di.init();
+  configureInjection(Env.prod);
 
   runApp(Application());
 }

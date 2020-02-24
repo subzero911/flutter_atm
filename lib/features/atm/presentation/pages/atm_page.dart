@@ -6,12 +6,12 @@ import 'package:flutter_atm/features/atm/presentation/widgets/builders/atm_list_
 import 'package:flutter_atm/features/atm/presentation/widgets/gradient_background_widget.dart';
 import 'package:flutter_atm/features/atm/presentation/widgets/home_controls_widget.dart';
 import 'package:flutter_atm/features/atm/presentation/widgets/message_display_widget.dart';
-import 'package:flutter_atm/injection_container.dart' as di;
+import 'package:flutter_atm/injection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AtmPage extends StatelessWidget {
 
-  get atmBloc => di.sl<AtmBloc>();
+  get atmBloc => getIt<AtmBloc>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class AtmPage extends StatelessWidget {
 
   BlocProvider<AtmBloc> _buildBody(BuildContext context) {
     return BlocProvider(
-      create: (_) => di.sl<AtmBloc>(),
+      create: (_) => atmBloc,
       child: Column(
         children: <Widget>[
           HomeControls(),

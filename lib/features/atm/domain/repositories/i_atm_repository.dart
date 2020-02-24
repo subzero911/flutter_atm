@@ -1,6 +1,6 @@
 import 'package:flutter_atm/features/atm/data/models/bank_cell.dart';
 
-abstract class AtmRepository {
+abstract class IAtmRepository {
   /// Allows you to watch the balance change
   Stream<List<BankCell>> watchBalance();
 

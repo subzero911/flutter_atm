@@ -1,18 +1,24 @@
 import 'dart:async';
-
 import 'package:flutter_atm/features/atm/data/models/bank_cell.dart';
-import 'package:flutter_atm/features/atm/domain/providers/atm_fake_provider.dart';
-import 'package:flutter_atm/features/atm/domain/repositories/atm_repository.dart';
+import 'package:flutter_atm/features/atm/domain/providers/i_atm_fake_provider.dart';
+import 'package:flutter_atm/features/atm/domain/repositories/i_atm_repository.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 
-class AtmRepositoryImpl extends AtmRepository {
-  final AtmFakeProvider atmProvider;
+import '../../../../injection.dart';
+
+@RegisterAs(IAtmRepository, env: Env.prod)
+@lazySingleton
+@injectable
+class AtmRepository implements IAtmRepository {
+
+  final IAtmFakeProvider atmProvider;
 
   StreamController<List<BankCell>> _streamController = new StreamController();
 
   List<BankCell> _balance = [];
 
-  AtmRepositoryImpl({@required this.atmProvider})
+  AtmRepository({@required this.atmProvider})
       : assert(atmProvider != null) {
     // Get and sort balance by denomination (ascending)
     _balance = atmProvider.getBalance()

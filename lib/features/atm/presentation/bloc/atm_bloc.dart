@@ -1,11 +1,15 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_atm/injection.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:flutter_atm/features/atm/data/models/bank_cell.dart';
-import 'package:flutter_atm/features/atm/domain/repositories/atm_repository.dart';
+import 'package:flutter_atm/features/atm/domain/repositories/i_atm_repository.dart';
 import './bloc.dart';
 
+@Environment(Env.prod)
+@injectable
 class AtmBloc extends Bloc<AtmEvent, AtmState> {
-  final AtmRepository atmRepository;
+  final IAtmRepository atmRepository;
 
   AtmBloc({
     @required this.atmRepository
