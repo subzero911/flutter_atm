@@ -17,12 +17,14 @@ flutter packages pub run build_runner watch --delete-conflicting-outputs
 ## Languages, libraries and tools used
 ### Libraries
 * [Flutter BLoC](https://pub.dev/packages/flutter_bloc)
-* [Super Enum](https://pub.dev/packages/super_enum)
+* [Freezed](https://pub.dev/packages/freezed) for unions/pattern-matching/copy
+* Annotations for Freezed with [Freezed Annotation](https://pub.dev/packages/freezed_annotation)
 * Dependency Injection with [Get It](https://pub.dev/packages/get_it)
+* [Injectable](https://pub.dev/packages/injectable) for DI
 * Animations with [Simple Animations](https://pub.dev/packages/simple_animations)
 
 ### Generators
-* [Super Enum Generator](https://pub.dev/packages/super_enum_generator)
+* [Injectable Generator](https://pub.dev/packages/injectable_generator)
 
 ## Architecture
 This project follows Google architecture guidelines that are based on BLoC.
