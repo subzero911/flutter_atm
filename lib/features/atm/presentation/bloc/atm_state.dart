@@ -1,16 +1,11 @@
-import 'package:super_enum/super_enum.dart';
+import 'package:flutter_atm/features/atm/data/models/bank_cell.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'atm_state.g.dart';
+part 'atm_state.freezed.dart';
 
-@superEnum
-enum _AtmState {
-  @object
-  Initialized,
-  @generic
-  @Data(fields: [
-    DataField('biils', Generic),
-  ])
-  BillsReturned,
-  @object
-  OperationFailed
+@freezed
+abstract class AtmState with _$AtmState {
+  const factory AtmState.initialized() = Initialized;
+  const factory AtmState.billsReturned({List<BankCell> value}) = BillsReturned;
+  const factory AtmState.operationFailed() = OperationFailed;
 }

@@ -110,6 +110,8 @@ class _HomeControlsState extends State<HomeControls> {
   }
 
   void dispatchCashWithdrawn() {
-    BlocProvider.of<AtmBloc>(context).add(CashWithdrawn(amount: inputAmount));
+    BlocProvider.of<AtmBloc>(context).add(
+        CashWithdrawn(value: inputAmount)
+    );
   }
 }

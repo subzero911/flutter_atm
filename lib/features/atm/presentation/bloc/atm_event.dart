@@ -1,11 +1,8 @@
-import 'package:super_enum/super_enum.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'atm_event.g.dart';
+part 'atm_event.freezed.dart';
 
-@superEnum
-enum _AtmEvent {
-  @Data(fields: [
-    DataField('amount', int),
-  ])
-  CashWithdrawn
+@freezed
+abstract class AtmEvent with _$AtmEvent {
+  const factory AtmEvent.cashWithdrawn({int value}) = CashWithdrawn;
 }

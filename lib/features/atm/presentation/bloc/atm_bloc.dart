@@ -1,7 +1,6 @@
-import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:flutter_atm/features/atm/data/models/bank_cell.dart';
 import 'package:meta/meta.dart';
+import 'package:flutter_atm/features/atm/data/models/bank_cell.dart';
 import 'package:flutter_atm/features/atm/domain/repositories/atm_repository.dart';
 import './bloc.dart';
 
@@ -13,23 +12,21 @@ class AtmBloc extends Bloc<AtmEvent, AtmState> {
   }): assert (atmRepository != null);
 
   @override
-  AtmState get initialState => AtmState.initialized();
+  AtmState get initialState => Initialized();
 
   @override
   Stream<AtmState> mapEventToState(AtmEvent event) async* {
-    yield* event.when(
-        cashWithdrawn: (e) => _mapCashWithdrawnToState(e)
-    ) as Stream<AtmState>;
+    yield* _mapCashWithdrawnToState(event);
   }
 
   Stream<AtmState> _mapCashWithdrawnToState(CashWithdrawn e) async* {
-    List<BankCell> bills = atmRepository.cashWithdraw(e.amount);
+    List<BankCell> bills = atmRepository.cashWithdraw(e.value);
     if (bills.isEmpty) {
       yield OperationFailed();
     } else {
       // If the operation was successful, update the balance of the ATM
       atmRepository.updateBalance();
-      yield BillsReturned(biils: bills);
+      yield BillsReturned(value: bills);
     }
   }
 }

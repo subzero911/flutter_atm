@@ -41,9 +41,9 @@ class AtmPage extends StatelessWidget {
   }
 
   Widget _atmPageBuilder(BuildContext context, AtmState state) {
-    return state.when(
+    return state.map(
         initialized: (_) => Container(),
-        billsReturned: (s) => _buildBillsReturned(context, s.biils),
+        billsReturned: (s) => _buildBillsReturned(context, s.value),
         operationFailed: (_) => MessageDisplay(
             message: 'The ATM cannot issue the requested amount!')
     );
